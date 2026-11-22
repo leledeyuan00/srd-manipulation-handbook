@@ -27,6 +27,8 @@ jobs:
         env:
           LLM_API_URL: ${{ vars.LLM_API_URL }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_WIRE_API: ${{ vars.LLM_WIRE_API }}
+          LLM_MAX_RETRIES: ${{ vars.LLM_MAX_RETRIES }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         run: python scripts/translate.py
       - run: python scripts/fetch_editor.py

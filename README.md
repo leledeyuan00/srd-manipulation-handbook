@@ -40,6 +40,8 @@ git push -u origin main
 | --- | --- | --- |
 | Variable | `LLM_API_URL` | 经组织允许的 OpenAI-compatible HTTPS chat-completions 完整端点（例如 `https://api.openai.com/v1/chat/completions`） |
 | Variable | `LLM_MODEL` | 该服务已开通的模型 ID |
+| Variable | `LLM_WIRE_API` | `chat_completions`（默认）或 `responses`；公司 Responses API 使用 `responses` |
+| Variable | `LLM_MAX_RETRIES` | 429 限流时的额外重试次数，默认 `2`；不重试其他 HTTP 错误 |
 | Secret | `LLM_API_KEY` | 该服务的 API key |
 
 初始 39 个页面已经有三语大纲且同步状态已初始化，第一次未改动文档时无需 API key，模型不会被调用。首次真正修改内容前配置 API。API 按服务计费；ChatGPT 订阅不包含通用 API 调用额度。模型和 API 都可以替换。
@@ -88,7 +90,7 @@ The previous MyST content must be migrated separately: `{doc}`, `{term}`, `:::{w
 
 ## 5. Translation workflow and failure behavior
 
-`python scripts/translate.py --plan` shows the intended action (run against a Git repository with committed changes). `python scripts/translate.py` performs synchronization. `translation-state.json` stores SHA-256 hashes for the last synchronized content. A single changed language becomes the source; only its page is sent to the model. In a normal update the program requests the other two translations, passing the existing target as context, and validates Markdown heading/list/table structure, fenced code, inline code, and link/image destinations. All requested translations must pass before any translation file is written; a failure aborts the workflow rather than publishing inconsistent output. The source commit stays in git, and the published version stays at the last successful deploy.
+`python scripts/translate.py --plan` shows the intended action (run against a Git repository with committed changes). For an OpenAI-compatible Responses endpoint, set `LLM_API_URL` to the full `/responses` URL and set `LLM_WIRE_API=responses`; the workflow passes this variable to the translator. `python scripts/translate.py` performs synchronization. `translation-state.json` stores SHA-256 hashes for the last synchronized content. A single changed language becomes the source; only its page is sent to the model. In a normal update the program requests the other two translations, passing the existing target as context, and validates Markdown heading/list/table structure, fenced code, inline code, and link/image destinations. All requested translations must pass before any translation file is written; a failure aborts the workflow rather than publishing inconsistent output. The source commit stays in git, and the published version stays at the last successful deploy.
 
 When two or more languages of a page have unsynchronized changes, the program refuses automatic merging. Review all three texts and explicitly reconcile them. If they already agree, use a reviewed manual reconciliation commit touching the conflicting files with `[translation-fix]` (all three language files must exist; a harmless newline-only change can record the reviewed file if needed). Manual-only commits update the state without calling the model. The program reads the most recent Git commit message for each changed language. Whole-page deletion/rename and partial language deletion are deliberately blocked pending explicit state migration. Do not edit the state simply to hide a failed sync.
 
