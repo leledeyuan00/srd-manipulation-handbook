@@ -1,0 +1,67 @@
+{
+  "00_infrastructure/index": {
+    "en": "36eadd8906d2d1d9d8c9844f43887a11534da605b80aa0b68d3fc4f6ee0c8446",
+    "ja": "0b117a038d74add8f771b583f8aab5a095bf850fbee773367e8c86a3b5135de4",
+    "zh": "8e7bf81e6889202ceea32cb96169101abb11d47a000dc57acc145ac68ce176df"
+  },
+  "01_realtime_control/index": {
+    "en": "47051841f4ec7fb29c7b7d9451039340bd2cac4efa71bf444f47a32d48b62e53",
+    "ja": "48965f79fbbb9e9c02fc7b5ad8d6c2c229ddbfc17e825ab686f57adf34e16c1e",
+    "zh": "7c3a62ff927121b00fa2c5897e5971955a827480d14bdf543a2ed1e62350b57b"
+  },
+  "02_imitation_learning/data_collection": {
+    "en": "2a2326c1cbf33fd9e123654f8155f0bd8dcb04f264b2f958b97899e9b2af029e",
+    "ja": "20baf11cd0f467154c5b4dfc515b7c70195b65018469962e73ae83125c3e9315",
+    "zh": "129f4cb7158b52ba6a9b1aec14b8e9d02ddd38043d0ccff4fb9ae2032bdc93d1"
+  },
+  "02_imitation_learning/dataset": {
+    "en": "49e9f2c1258e51179568c9b0e879d05cc23a8a51b6b48fbcd81d3b97548f9088",
+    "ja": "596849e7aea7003df59b3a0df4d39910e877fcce348b162238513295156a4cc9",
+    "zh": "257a0294561fe5b65c5f7221a4ee99d5b29b0797f0b4db9dbf7dc267d5ffa61c"
+  },
+  "02_imitation_learning/deployment": {
+    "en": "b16563617eb495fba74d7a9d1fc196711202b9fbc7b537e67f3b0053ce6f57fe",
+    "ja": "96e14e96d31b6af0c48783ed60008c90f59ebcbc1e0b93312b4a673b1b7cf5da",
+    "zh": "0d1b1c38e8631995ff931cd25ec25328b426df764fc3c083008773978cf19959"
+  },
+  "02_imitation_learning/index": {
+    "en": "594f6a2907938e0b0cf78ee319ba0b834d60d3776d54d4927fea8f0151c1d917",
+    "ja": "07090b301ddccdc870ac81cefe2b4617232be9c28fe3ac68a292533f81e87a86",
+    "zh": "9aa7f20146805850a8ac198de196eddb111d859f8a84e1544aca02e294a26429"
+  },
+  "02_imitation_learning/training": {
+    "en": "a43592fd84a9424159e04c1708b7e2c433585ee28a6fb5a440e8977d5c5e17a4",
+    "ja": "c0710217b14767f23d2657a67beb1e5ee9acd011be71a324be4e29a41d6d36cc",
+    "zh": "a57ab838e7a6995a7ee424a1eff3601b9f3fd0045c76593f4f2103460d19fd00"
+  },
+  "03_denso_system/index": {
+    "en": "66c661f30ce9acd5e7f3fef0021da3dc7c9836b52e9e586ebbb62351a7fbb7e4",
+    "ja": "2e1626800f04a689cb8954a2d6dd7a20debbdd11d8e89eca1508dd21ba209c4d",
+    "zh": "64626e7c8059f81bb56534492631fb10645fcb5ee48fb10837bf358f45dfdbd6"
+  },
+  "04_lessons_learned/index": {
+    "en": "23e948c8de8039991fcd9558c200d72d13b018139caf6fe38f59a41fc4ee7d5a",
+    "ja": "93e09745d61c6792bba4b3ca34475850be34a53874ccdad2ad5875f398575109",
+    "zh": "113868f028bd00c36eedf038de1d5033cc3940dde484641f105a88eccd6852e6"
+  },
+  "05_handbook_maintenance/index": {
+    "en": "171085541ac66242301651a7e94c5a11d4a8ff511aeb64830fa63e31ae17556b",
+    "ja": "6afecf3e6d56680880f76786f286754e7df8799a8edc4de16e7b1160b6045cfc",
+    "zh": "e4c2adc01934abc4a97b4752429be78cddd1cd80226871996e77c1c45e1d93a0"
+  },
+  "appendix/glossary": {
+    "en": "989df9a1addb5bd06509dce4a583500f9d8a97b73e247a11b004893b9153e93e",
+    "ja": "5dd186fa80b45d49f3456ba76fbc4ca136b8ba48c01ad414d1a240124770d3b7",
+    "zh": "3f4fd14e1411a8eeaadd5f4378af9d2933b67b4ec2319a62e628c69d15b798b3"
+  },
+  "appendix/reading_list": {
+    "en": "20ada844a7e6d86a56bf22d348e3d8d0485afa27361fff798083ef4f21076825",
+    "ja": "335bb29bfbdb07406403192a564acf5a382ce87228584ba72629ebcce3a6b6a3",
+    "zh": "70cb52c37571f20032a18c223f68f9dbd39d2ae53085998052c97b66f1205dcf"
+  },
+  "home": {
+    "en": "3e110f949c79c4081dfbc01624eebd41050f37678b5a7fb70cc1d3c294b31c57",
+    "ja": "956894897de5fecb19e1f91d61a5ad5d60262b941fb8a552b55a8c09783eb1c8",
+    "zh": "ace61e5074a47c54f8b82bc0eac3c2c359d5eed7ddebcad2bfdc7f2880766676"
+  }
+}

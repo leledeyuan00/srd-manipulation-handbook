@@ -1,0 +1,1 @@
+TOAST UI Editor 3.2.2 (MIT). Run `python scripts/fetch_editor.py` to retrieve the browser bundle and stylesheet. These are served locally by the generated website. Review upstream code and dependencies before enabling repository credentials in production.

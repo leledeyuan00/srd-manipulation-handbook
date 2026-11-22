@@ -1,0 +1,5 @@
+# Chapter-specific editing rules
+
+In addition to root AGENTS.md, keep training in the existing order: environment setup; observation/action schema and policies; training configuration (minimal command, hyperparameters, camera subset, config overrides); run and monitor (errors, checkpoints, resume); validate before deployment; experiment log and cheat sheet.
+
+Missing evidence: exact approved LeRobot version/fork/commit, tested installation and minimal CLI, redacted `meta/info.json`, policy registration and module map, hyperparameters, GPU/runtime, an approved loss-curve screenshot. Ask for authorized excerpts, not full private logs or private repository URLs. The earlier action dimension description was inconsistent; verify from permitted schema before writing dimension values. For camera-subset feature mismatch, verify exact error and CLI for the actual version. Link from training to dataset for encoding and from deployment to checkpoint provenance; avoid duplication. Do not run hardware or training commands merely to verify documentation.

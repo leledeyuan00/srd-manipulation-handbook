@@ -1,0 +1,11 @@
+site/
+.venv/
+__pycache__/
+*.pyc
+vendor/*.js
+vendor/*.css
+.env
+*.env
+.env.*
+.DS_Store
+Thumbs.db

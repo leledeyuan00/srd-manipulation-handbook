@@ -1,0 +1,62 @@
+name: Translate and publish handbook
+on:
+  push:
+  workflow_dispatch:
+concurrency:
+  group: handbook-pages
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  build:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - name: Translate changed pages
+        env:
+          LLM_API_URL: ${{ vars.LLM_API_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: python scripts/translate.py
+      - run: python scripts/fetch_editor.py
+      - run: python scripts/build.py
+      - name: Commit generated translations only
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git add -- content translation-state.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'docs: synchronize translations [skip-translation]'
+            git push origin "HEAD:${DEFAULT_BRANCH}"
+          fi
+          git fetch origin "$DEFAULT_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy static pages
+        id: deployment
+        uses: actions/deploy-pages@v4
